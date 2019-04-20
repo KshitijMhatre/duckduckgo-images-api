@@ -104,13 +104,14 @@ async function* image_search_generator({ query, moderate, retries, iterations })
             "f": ",,,",
             "p": "" + (p)
         }
-
-        let data = null;
+        
         let itr = 0;
 
 
         while (itr < iterations) {
-            console.log('iteration ', itr);
+            console.log('iteration ', itr+1);
+
+            let data = null;
 
             while (true) {
                 try {
@@ -127,13 +128,11 @@ async function* image_search_generator({ query, moderate, retries, iterations })
                 } catch (error) {
                     console.error(error)
                     attempt += 1;
-                    console.log('attempt ', attempt)
+                    console.log('retry ', attempt)
                     if (attempt > retries) {
                         
-                        yield await new Promise((resolve, reject) => {
-                            if (data.results.length === 0)
-                                reject('attempt finished')
-                            resolve(data.results)
+                        yield await new Promise((resolve, reject) => {                            
+                            reject('attempt finished')                            
                         })
 
                     }
@@ -144,9 +143,7 @@ async function* image_search_generator({ query, moderate, retries, iterations })
             }
             
 
-            yield await new Promise((resolve, reject) => {
-                if (data.results.length === 0)
-                    reject('finished')
+            yield await new Promise((resolve, reject) => {                
                 resolve(data.results)
             })
 
@@ -158,13 +155,7 @@ async function* image_search_generator({ query, moderate, retries, iterations })
 
     } catch (error) {
         console.error(error);
-    }
-    yield await new Promise((resolve, reject) => {
-
-        reject('finished')
-
-    })
-        ;
+    }    
 
 }
 
