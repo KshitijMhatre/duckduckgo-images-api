@@ -46,4 +46,4 @@ Please feel free to report any issues or feature requests.
 
 ### note
 
-The DuckDuckGo provides an instant answer API. This package does not use this route. This package mocks the browser behaviour using the same request format. Use it wisely.
+DuckDuckGo provides an instant answer API. This package does not use this route. This package mocks the browser behaviour using the same request format. Use it wisely.
