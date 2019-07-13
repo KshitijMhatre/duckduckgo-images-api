@@ -10,6 +10,10 @@ To install, run:
 ```
 npm i duckduckgo-images-api
 ```
+When using TypeScript, run:
+```
+npm i @types/duckduckgo-images-api
+```
 
 The package provides simple async api. And uses following config object as input:
 ```javascript
