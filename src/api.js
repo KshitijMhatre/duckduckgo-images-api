@@ -32,7 +32,6 @@ async function image_search({ query, moderate, retries, iterations }) {
 
 
         while (itr < iterations) {
-            console.log('iteration ', itr);
 
             while (true) {
                 try {
@@ -49,7 +48,6 @@ async function image_search({ query, moderate, retries, iterations }) {
                 } catch (error) {
                     console.error(error)
                     attempt += 1;
-                    console.log('attempt ', attempt)
                     if (attempt > retries) {
                         return new Promise((resolve, reject) => {
                             resolve(results)
@@ -109,7 +107,6 @@ async function* image_search_generator({ query, moderate, retries, iterations })
 
 
         while (itr < iterations) {
-            console.log('iteration ', itr+1);
 
             let data = null;
 
@@ -128,7 +125,6 @@ async function* image_search_generator({ query, moderate, retries, iterations })
                 } catch (error) {
                     console.error(error)
                     attempt += 1;
-                    console.log('retry ', attempt)
                     if (attempt > retries) {
                         
                         yield await new Promise((resolve, reject) => {                            
