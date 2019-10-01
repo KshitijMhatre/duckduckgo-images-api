@@ -1,17 +1,21 @@
 # duckduckgo-images-api
 
- A lightweight node package to programmatically obtain image search results from DuckDuckGo search engine.
+A lightweight node package to programmatically obtain image search results from DuckDuckGo search engine.
 
- The method used is inspired from [python package](https://github.com/deepanprabhu/duckduckgo-images-api) with same name. Thanks to, [deepanprabhu](https://github.com/deepanprabhu) for original source. This is my first node package and was fun to write.
+The method used is inspired from [python package](https://github.com/deepanprabhu/duckduckgo-images-api) with same name. Thanks to, [deepanprabhu](https://github.com/deepanprabhu) for original source. This is my first node package and it was fun to write.
 
 ## usage
 
-To install run
+To install, run:
 ```
 npm i duckduckgo-images-api
 ```
+When using TypeScript, run:
+```
+npm i @types/duckduckgo-images-api
+```
 
-The package provides simple async api. And uses following config object as input 
+The package provides simple async api. And uses following config object as input:
 ```javascript
 { 
     query: "search term", 
@@ -29,7 +33,7 @@ image_search function return a promise that resolves to array of complete result
 ```javascript
 image_search({ query: "birds", moderate: true }).then(results=>console.log(results))
 ```
-image_search_generator function is a async generator that yeild promise of result set on each iteration. Useful for large iterations. Please check the node version compatability for this syntax.
+image_search_generator function is a async generator that yield promise of result set on each iteration. Useful for large iterations. Please check the node version compatability for this syntax.
 
 ```javascript
 async function main(){
@@ -41,9 +45,9 @@ async function main(){
 main().catch(console.log);
 ```
 
-please feel free to report any issues or feature requests.
+Please feel free to report any issues or feature requests.
 
 
 ### note
 
- The DuckDuckGo provides an instant answer API. This package does not use this route. This package mocks the browser behaviour using the same request format. Use it wisely
+DuckDuckGo provides an instant answer API. This package does not use this route. This package mocks the browser behaviour using the same request format. Use it wisely.
