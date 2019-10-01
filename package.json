@@ -1,6 +1,6 @@
 {
   "name": "duckduckgo-images-api",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "DuckDuckGo image-search api for node",
   "main": "index.js",
   "scripts": {
