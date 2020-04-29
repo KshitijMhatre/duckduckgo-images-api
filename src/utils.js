@@ -1,5 +1,5 @@
 const axios = require('axios');
-const {url} = require('./constants') 
+const {url} = require('./constants')
 
 function sleep(ms) {
     return new Promise(resolve => {
@@ -17,7 +17,7 @@ async function getToken(keywords) {
             }
         })
 
-        token = res.data.match(/vqd=([\d-]+)\&/)[0].substring(4)
+        token = res.data.match(/vqd=([\d-]+)\&/)[1]
 
     } catch (error) {
         console.error(error)
@@ -32,6 +32,6 @@ async function getToken(keywords) {
 }
 
 module.exports ={
-    sleep,    
+    sleep,
     getToken
 }
